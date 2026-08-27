@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>개인 프로필 링크</title>
-  <!-- Font Awesome CDN (SNS & 링크 아이콘) -->
+  <!-- Font Awesome CDN (SNS & 아이콘) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,13 +13,15 @@
   <!-- 모바일 프레임 컨테이너 -->
   <main class="profile-container">
     
-    <!-- 상단 공유/알림 헤더 버튼 -->
+    <!-- 상단 공유 & 다크모드 토글 헤더 -->
     <header class="top-nav">
       <button class="icon-circle-btn" id="shareBtn" aria-label="공유하기">
         <i class="fa-solid fa-arrow-up-from-bracket"></i>
       </button>
-      <button class="icon-circle-btn" id="bellBtn" aria-label="알림">
-        <i class="fa-regular fa-bell"></i>
+      
+      <!-- 다크모드/라이트모드 토글 버튼 -->
+      <button class="icon-circle-btn theme-toggle-btn" id="themeToggleBtn" aria-label="테마 전환">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
       </button>
     </header>
 

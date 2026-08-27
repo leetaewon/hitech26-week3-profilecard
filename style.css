@@ -1,14 +1,55 @@
+/* 라이트 모드 기본 색상 변수 */
 :root {
-  --primary-purple: #7952b3;
-  --dark-purple: #4c2882;
-  --light-purple: #eedffc;
-  --pill-bg: #e5d4f7;
-  --pill-hover: #dac0f5;
-  --pill-active: #cca8f0;
+  --body-bg: #e2dbec;
+  --card-bg-gradient: linear-gradient(160deg, #ffffff 0%, #f6f0ff 45%, #eedefc 100%);
+  --card-border: rgba(255, 255, 255, 0.8);
+  --card-shadow: rgba(76, 40, 130, 0.18);
+  
   --text-main: #2b1d3d;
   --text-sub: #6f5f82;
-  --card-bg: rgba(255, 255, 255, 0.92);
-  --bg-gradient: linear-gradient(180deg, #ede7f6 0%, #d1c4e9 50%, #b39ddb 100%);
+  --text-badge: #7952b3;
+  --badge-bg: rgba(121, 82, 179, 0.12);
+
+  --btn-bg: #ffffff;
+  --btn-border: rgba(121, 82, 179, 0.15);
+  --btn-color: #4c2882;
+  --btn-hover-bg: #7952b3;
+  --btn-hover-color: #ffffff;
+
+  --pill-bg: rgba(255, 255, 255, 0.7);
+  --pill-hover: rgba(255, 255, 255, 0.95);
+  --pill-active: rgba(240, 230, 255, 0.9);
+  --pill-border: rgba(121, 82, 179, 0.12);
+  --pill-shadow: rgba(121, 82, 179, 0.08);
+
+  --avatar-border: linear-gradient(135deg, #7952b3, #b39ddb);
+}
+
+/* 다크 모드 색상 변수 */
+body.dark-mode {
+  --body-bg: #0f0a17;
+  --card-bg-gradient: linear-gradient(160deg, #221538 0%, #1a0f2b 55%, #120920 100%);
+  --card-border: rgba(168, 85, 247, 0.2);
+  --card-shadow: rgba(0, 0, 0, 0.6);
+  
+  --text-main: #f3e8ff;
+  --text-sub: #bba6d9;
+  --text-badge: #d8b4fe;
+  --badge-bg: rgba(168, 85, 247, 0.2);
+
+  --btn-bg: #2d1b46;
+  --btn-border: rgba(168, 85, 247, 0.3);
+  --btn-color: #e9d5ff;
+  --btn-hover-bg: #9333ea;
+  --btn-hover-color: #ffffff;
+
+  --pill-bg: rgba(45, 27, 70, 0.75);
+  --pill-hover: rgba(65, 38, 102, 0.9);
+  --pill-active: rgba(80, 48, 122, 0.9);
+  --pill-border: rgba(168, 85, 247, 0.25);
+  --pill-shadow: rgba(0, 0, 0, 0.3);
+
+  --avatar-border: linear-gradient(135deg, #9333ea, #c084fc);
 }
 
 * {
@@ -24,21 +65,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-gradient);
+  background-color: var(--body-bg);
   padding: 24px 16px;
+  transition: background-color 0.4s ease;
 }
 
-/* 모바일 뷰 카드 컨테이너 */
+/* 카드 컨테이너 (그라데이션 적용) */
 .profile-container {
   width: 100%;
   max-width: 420px;
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--card-border);
   border-radius: 36px;
   padding: 24px 20px 32px;
-  box-shadow: 0 20px 45px rgba(76, 40, 130, 0.18);
+  box-shadow: 0 20px 45px var(--card-shadow);
   display: flex;
   flex-direction: column;
+  transition: all 0.4s ease;
 }
 
 /* 상단 버튼 */
@@ -49,23 +92,24 @@ body {
 }
 
 .icon-circle-btn {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid rgba(121, 82, 179, 0.15);
-  color: var(--dark-purple);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-color);
   font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .icon-circle-btn:hover {
-  background: var(--light-purple);
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-color);
   transform: translateY(-2px);
 }
 
@@ -79,11 +123,11 @@ body {
 }
 
 .avatar-box {
-  width: 90px;
-  height: 90px;
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
   padding: 3px;
-  background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+  background: var(--avatar-border);
   box-shadow: 0 8px 18px rgba(121, 82, 179, 0.25);
   margin-bottom: 14px;
 }
@@ -103,19 +147,25 @@ body {
   color: var(--text-main);
   letter-spacing: -0.5px;
   margin-bottom: 4px;
+  transition: color 0.3s ease;
 }
 
 .profile-role {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--primary-purple);
-  margin-bottom: 6px;
+  color: var(--text-badge);
+  background-color: var(--badge-bg);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
 }
 
 .profile-bio {
   font-size: 0.9rem;
   color: var(--text-sub);
   margin-bottom: 16px;
+  transition: color 0.3s ease;
 }
 
 /* SNS 아이콘 */
@@ -125,24 +175,24 @@ body {
 }
 
 .social-link {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #ffffff;
-  color: var(--dark-purple);
+  background: var(--btn-bg);
+  color: var(--btn-color);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.15rem;
   text-decoration: none;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(121, 82, 179, 0.12);
-  transition: all 0.2s ease;
+  border: 1px solid var(--btn-border);
+  transition: all 0.25s ease;
 }
 
 .social-link:hover {
-  background: var(--primary-purple);
-  color: #ffffff;
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-color);
   transform: translateY(-2px);
 }
 
@@ -156,7 +206,9 @@ body {
 .link-card {
   display: flex;
   align-items: center;
-  background-color: var(--pill-bg);
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  backdrop-filter: blur(8px);
   color: var(--text-main);
   text-decoration: none;
   padding: 16px 20px;
@@ -164,23 +216,22 @@ body {
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(121, 82, 179, 0.08);
+  box-shadow: 0 4px 12px var(--pill-shadow);
 }
 
 .link-card:hover {
-  background-color: var(--pill-hover);
+  background: var(--pill-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(121, 82, 179, 0.15);
 }
 
 .link-card:active {
-  background-color: var(--pill-active);
+  background: var(--pill-active);
   transform: scale(0.98);
 }
 
 .card-icon {
   font-size: 1.1rem;
-  color: var(--dark-purple);
+  color: var(--text-badge);
   margin-right: 14px;
   display: flex;
   align-items: center;
@@ -193,14 +244,13 @@ body {
 
 .arrow-icon {
   font-size: 0.85rem;
-  color: var(--dark-purple);
-  opacity: 0.6;
+  color: var(--text-sub);
+  opacity: 0.7;
 }
 
 /* 썸네일 포함 하이라이트 링크 버튼 */
 .highlight-card {
   padding: 12px 18px;
-  background-color: #eedffc;
 }
 
 .card-thumb {
@@ -245,7 +295,7 @@ body {
   color: var(--text-sub);
 }
 
-/* 반응형 모바일 (가로 폭이 좁은 스마트폰) */
+/* 반응형 모바일 (초소형 화면) */
 @media (max-width: 360px) {
   .profile-container {
     padding: 18px 14px 24px;
