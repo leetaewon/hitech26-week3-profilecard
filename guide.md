@@ -205,6 +205,7 @@ GitHub 저장소 페이지 → **Releases** → **Draft a new release**
 1. 본인 저장소에서 브랜치를 `dev`로 전환한 상태에서 **Contribute** → **Open pull request**
 2. 원본 저장소(`hitech26-week3-profilecard`)의 `main` 브랜치로, 내 `dev` 브랜치를 PR
 3. 제목에 이름 포함 (예: `[홍길동] 프로필 카드 제출`)
+4. PR을 열면 아래와 같은 템플릿이 자동으로 채워집니다. 빈칸을 채워서 제출하세요.
 
 > 💡 이 PR도 실제로 Merge되지 않는 제출용입니다.
 
