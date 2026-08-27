@@ -1,11 +1,14 @@
 :root {
   --primary-purple: #7952b3;
   --dark-purple: #4c2882;
-  --light-purple: #f3e8ff;
-  --accent-purple: #9333ea;
-  --text-dark: #2d1a47;
-  --text-muted: #6b7280;
-  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --light-purple: #eedffc;
+  --pill-bg: #e5d4f7;
+  --pill-hover: #dac0f5;
+  --pill-active: #cca8f0;
+  --text-main: #2b1d3d;
+  --text-sub: #6f5f82;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --bg-gradient: linear-gradient(180deg, #ede7f6 0%, #d1c4e9 50%, #b39ddb 100%);
 }
 
 * {
@@ -13,6 +16,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -21,154 +25,235 @@ body {
   justify-content: center;
   align-items: center;
   background: var(--bg-gradient);
-  padding: 20px;
+  padding: 24px 16px;
 }
 
-.card-container {
+/* 모바일 뷰 카드 컨테이너 */
+.profile-container {
   width: 100%;
-  max-width: 360px;
+  max-width: 420px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 36px;
+  padding: 24px 20px 32px;
+  box-shadow: 0 20px 45px rgba(76, 40, 130, 0.18);
+  display: flex;
+  flex-direction: column;
 }
 
-.card {
-  background: #ffffff;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(76, 40, 130, 0.2);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* 상단 버튼 */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(76, 40, 130, 0.28);
-}
-
-.card-header {
-  background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
-  height: 110px;
-  position: relative;
-}
-
-.avatar-wrapper {
-  position: absolute;
-  bottom: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
+.icon-circle-btn {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #ffffff;
-  padding: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(121, 82, 179, 0.15);
+  color: var(--dark-purple);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
-.avatar {
+.icon-circle-btn:hover {
+  background: var(--light-purple);
+  transform: translateY(-2px);
+}
+
+/* 프로필 헤더 */
+.profile-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.avatar-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+  box-shadow: 0 8px 18px rgba(121, 82, 179, 0.25);
+  margin-bottom: 14px;
+}
+
+.avatar-img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  background: #ffffff;
   display: block;
 }
 
-.card-body {
-  padding: 60px 24px 28px;
-}
-
-.name {
-  font-size: 1.4rem;
+.profile-name {
+  font-size: 1.35rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--text-main);
+  letter-spacing: -0.5px;
   margin-bottom: 4px;
 }
 
-.role {
-  display: inline-block;
+.profile-role {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-purple);
-  background-color: var(--light-purple);
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 14px;
+  color: var(--primary-purple);
+  margin-bottom: 6px;
 }
 
-.bio {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 24px;
-  word-break: keep-all;
+.profile-bio {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin-bottom: 16px;
 }
 
-.social-links {
+/* SNS 아이콘 */
+.social-icons {
   display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 16px;
 }
 
-.social-btn {
-  width: 44px;
-  height: 44px;
+.social-link {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  display: inline-flex;
+  background: #ffffff;
+  color: var(--dark-purple);
+  display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.15rem;
   text-decoration: none;
-  background-color: #f8f6fc;
-  color: var(--dark-purple);
-  font-size: 1.2rem;
-  transition: all 0.25s ease;
-  border: 1px solid #eee7f7;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(121, 82, 179, 0.12);
+  transition: all 0.2s ease;
 }
 
-.social-btn:hover {
-  background-color: var(--primary-purple);
+.social-link:hover {
+  background: var(--primary-purple);
   color: #ffffff;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(121, 82, 179, 0.35);
+  transform: translateY(-2px);
 }
 
-.contact-btn {
-  width: 100%;
-  padding: 12px 0;
-  background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
-  color: #ffffff;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
+/* 하단 링크 버튼 목록 */
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--pill-bg);
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 28px;
   font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.1s ease;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(121, 82, 179, 0.08);
 }
 
-.contact-btn:hover {
-  opacity: 0.92;
+.link-card:hover {
+  background-color: var(--pill-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(121, 82, 179, 0.15);
 }
 
-.contact-btn:active {
+.link-card:active {
+  background-color: var(--pill-active);
   transform: scale(0.98);
 }
 
-/* 초소형 모바일 화면 대응 */
-@media (max-width: 320px) {
-  .card-body {
-    padding: 55px 16px 20px;
+.card-icon {
+  font-size: 1.1rem;
+  color: var(--dark-purple);
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.card-title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.arrow-icon {
+  font-size: 0.85rem;
+  color: var(--dark-purple);
+  opacity: 0.6;
+}
+
+/* 썸네일 포함 하이라이트 링크 버튼 */
+.highlight-card {
+  padding: 12px 18px;
+  background-color: #eedffc;
+}
+
+.card-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.card-text .card-title {
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.card-text .card-desc {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* 푸터 */
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+
+/* 반응형 모바일 (가로 폭이 좁은 스마트폰) */
+@media (max-width: 360px) {
+  .profile-container {
+    padding: 18px 14px 24px;
+    border-radius: 28px;
   }
 
-  .avatar-wrapper {
-    width: 85px;
-    height: 85px;
-    bottom: -40px;
-  }
-
-  .name {
-    font-size: 1.25rem;
-  }
-
-  .social-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
+  .link-card {
+    padding: 14px 16px;
+    font-size: 0.88rem;
   }
 }

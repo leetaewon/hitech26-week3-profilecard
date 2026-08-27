@@ -3,41 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>개인 프로필 카드</title>
+  <title>개인 프로필 링크</title>
+  <!-- Font Awesome CDN (SNS & 링크 아이콘) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="card-container">
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar-wrapper">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="프로필 사진" class="avatar">
-        </div>
-      </div>
-      
-      <div class="card-body">
-        <h2 class="name">김하늘</h2>
-        <span class="role">Frontend Developer</span>
-        <p class="bio">더 나은 사용자 경험을 디자인하고 구현하는 개발자입니다.</p>
-        
-        <div class="social-links">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn github" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-        </div>
+  <!-- 모바일 프레임 컨테이너 -->
+  <main class="profile-container">
+    
+    <!-- 상단 공유/알림 헤더 버튼 -->
+    <header class="top-nav">
+      <button class="icon-circle-btn" id="shareBtn" aria-label="공유하기">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+      </button>
+      <button class="icon-circle-btn" id="bellBtn" aria-label="알림">
+        <i class="fa-regular fa-bell"></i>
+      </button>
+    </header>
 
-        <button class="contact-btn" id="contactBtn">연락하기</button>
+    <!-- 프로필 영역 -->
+    <section class="profile-header">
+      <div class="avatar-box">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="프로필 사진" class="avatar-img">
       </div>
-    </div>
-  </div>
+      <h1 class="profile-name">김하늘</h1>
+      <p class="profile-role">Frontend & AI Developer</p>
+      <p class="profile-bio">기술과 디자인의 경계를 허무는 크리에이터</p>
+
+      <!-- SNS 아이콘 -->
+      <nav class="social-icons" aria-label="소셜 링크">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </nav>
+    </section>
+
+    <!-- 링크 버튼 목록 영역 -->
+    <section class="link-list" aria-label="주요 링크 목록">
+      
+      <!-- 1. 썸네일이 포함된 하이라이트 링크 버튼 -->
+      <a href="https://velog.io" target="_blank" rel="noopener noreferrer" class="link-card highlight-card">
+        <div class="card-thumb">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=120&q=80" alt="기술 블로그 썸네일">
+        </div>
+        <div class="card-text">
+          <span class="card-title">기술 블로그 (Velog / Medium)</span>
+          <span class="card-desc">개발 및 AI 프로젝트 기록 모아보기</span>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+
+      <!-- 2. 기본 링크 버튼 - 포트폴리오 -->
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <span class="card-title">웹 포트폴리오 사이트 바로가기</span>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+
+      <!-- 3. 기본 링크 버튼 - 프로젝트/강의 -->
+      <a href="https://notion.so" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <span class="card-title">강의 & 워크숍 자료실 (Notion)</span>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+
+      <!-- 4. 기본 링크 버튼 - 협업 및 문의 -->
+      <a href="mailto:contact@example.com" class="link-card">
+        <div class="card-icon">
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+        <span class="card-title">프로젝트 의뢰 및 협업 문의</span>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+
+    </section>
+
+    <!-- 하단 카피라이트 -->
+    <footer class="footer">
+      <p>© 2026 Haneul Kim. All rights reserved.</p>
+    </footer>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
